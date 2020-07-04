@@ -5,13 +5,14 @@
 					<div class="col-sm-7 col-md-7">
 						<div class="info">
 							<div class="info-item">
-								<span class="fa fa-phone"></span> +91 7678929880
+                                                            <span class="fa fa-phone"></span> <a href="tel:+91 7678929880">+91 7678929880</a> 
                                                                 <span class="fa fa-phone" style="margin-left: 10px"></span> +91 9953589905
 							</div>
                                                     
                                                                                                           
 							<div class="info-item">
-								<span class="fa fa-clock-o"></span> Mon-Sat: 9.00-18.00
+								<!--<span class="fa fa-clock-o"></span> Mon-Sat: 9.00-18.00-->
+								<span class="fa fa-clock-o"></span> 24*7
 							</div>
 							<div class="info-item">
 								<span class="fa fa-envelope-o"></span> <a href="mailto:info@pestco.com" title="">info@apsos.in</a>
@@ -19,8 +20,8 @@
 						</div>
 					</div>
 					<div class="col-sm-5 col-md-5">
-						<div class="request-quote pull-right">
-							<a href="#" title="">REQUEST A QUOTE</a>
+						<div class="request-quote pull-right" data-toggle="modal" data-target="#enquiryForm" style="cursor:pointer">
+                                                    <span>REQUEST A QUOTE</span>
 						</div>
 					</div>
 				</div>
@@ -43,7 +44,7 @@
 					<li><a href="<?php echo base_url('about-us')?>">ABOUT US</a></li>
 					<li><a href="">SERVICES</a></li>
 					<li><a href="">BLOG</a></li>
-					<li><a href="">CONTACT</a></li>
+					<li><a href="<?php echo base_url('contact-us')?>">CONTACT</a></li>
 					<li class="dropdown">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PAGES <span class="caret"></span></a>
 					  <ul class="dropdown-menu">
@@ -60,3 +61,31 @@
 			</nav>
 		</div>
     </div>
+
+<?php include "enquiryPopup.php" ?>
+
+<style>
+    .float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	left:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
+}
+</style>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://api.whatsapp.com/send?phone=+917678929880&text=Hello Apso," class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>

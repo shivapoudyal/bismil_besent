@@ -4,7 +4,7 @@
 <!------------------------------------------------ Head Part ------------------------------------------------> 
 <?php include "includes/head.php"; ?>
 <!------------------------------------------------ //Head Part ------------------------------------------------> 
-    
+
 <body>
 	<!-- Load page -->
 	<div class="animationload">
@@ -124,35 +124,9 @@
 					</div>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<div class="blok quotes">
-						<div class="blok-title">
-							<span>SCHEDULE</span> <br>A FREE INSPECTION
-						</div>
-						<form action="#" class="form-contact shake" id="contactForm"  data-toggle="validator">
-							<div class="form-group">
-								<input type="text" class="form-control" id="name" placeholder="Enter Name *" required>
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" id="email" placeholder="Enter Email *" required>
-								<div class="help-block with-errors"></div>
-							</div>
-                                                    
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control number" maxlength="10" minlength="10" id="mobile" placeholder="Enter Mobile Number *" required>
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								 <textarea id="message" class="form-control" rows="4" placeholder="Enter Your Message *" required></textarea>
-								<div class="help-block with-errors"></div>
-							</div>
-							<div class="form-group">
-								<div id="success"></div>
-								<button type="submit" class="btn btn-default">ASK A QUOTE</button>
-							</div>
-						</form>
-						<div class="icon"><span class="fa fa-calendar"></span></div>	
-					</div>
+		<!------------------------------------------------ Header Part ------------------------------------------------> 
+                    <?php include "includes/enquiry_form.php"; ?>
+                <!------------------------------------------------ //Header Part ------------------------------------------>
 				</div>
 			</div>
 		</div>
@@ -321,7 +295,7 @@
 					<div class="row">
 						<div class="col-sm-12 col-md-12">
 							<div class="section-title">
-								<h3 class="lead">WHY PESTCO?</h3>
+								<h3 class="lead">WHY APSO?</h3>
 							</div>
 						</div>
 					</div>
@@ -387,7 +361,7 @@
 									<img src="<?php echo base_url()?>assets/images/we-1.jpg" alt="" class="img-responsive">
 								</div>
 								<div class="box-image-body">
-                                                                    <p class="equalAlign"><?php echo who_we_are?></p>
+                                                                    <p class="equalAlign"><b style='color:#545454'>APSO Services Pvt. Ltd. </b> <?php echo who_we_are?></p>
 								</div>
 							</div>
 <!--							<div class="download-brochure">
@@ -428,7 +402,7 @@
 							</div>
 							<div class="description">
 								<h4>
-									<a href="demo/pestco/blog-detail.html" title="">Heading of Blog</a>
+									<a href="demo/Apso/blog-detail.html" title="">Heading of Blog</a>
 								</h4>
 								<p class="postby">
 									by <a href="#" title="">Admin</a> <span>/</span> 3 <a href="#" title="">Comments</a>
@@ -450,7 +424,7 @@
 							</div>
 							<div class="description">
 								<h4>
-									<a href="demo/pestco/blog-detail.html" title="">Heading of Blog</a>
+									<a href="demo/Apso/blog-detail.html" title="">Heading of Blog</a>
 								</h4>
 								<p class="postby">
 									by <a href="#" title="">Admin</a> <span>/</span> 3 <a href="#" title="">Comments</a>
@@ -472,7 +446,7 @@
 							</div>
 							<div class="description">
 								<h4>
-									<a href="demo/pestco/blog-detail.html" title="">Heading of Blog</a>
+									<a href="demo/Apso/blog-detail.html" title="">Heading of Blog</a>
 								</h4>
 								<p class="postby">
 									by <a href="#" title="">Admin</a> <span>/</span> 3 <a href="#" title="">Comments</a>
@@ -498,22 +472,7 @@
 			<div class="row">
 				<div class="col-sm-12 col-md-12">
 					<div id="owl-testimony">
-						<div class="item">
-							<div class="item-testimony">
-								<div class="quote-box">
-									<blockquote class="quote">
-									 We specialize in 23 different kinds of pest, and we're also qualified to handle a much wider range of pest control needs. If you have a pest problem that's not covered in our pest library, be sure to contact us for information about what services we offer for your particular needs.If you have a pest problem that's not covered in our pest library, be sure to contact us for information about what services we offer for your particular needs.
-									</blockquote>
-								</div>
-								<div class="people">
-									<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-1.jpg" alt="">
-									<p class="details">
-										Johnathan Doel <span>CEO Buka Kreasi</span>
-									</p>                        
-								</div>
-								<div class="icon"><span class="fa fa-quote-left"></span></div>
-							</div>
-						</div>
+						
 						<div class="item">
 							<div class="item-testimony">
 								<div class="quote-box">
@@ -637,4 +596,11 @@
 <?php include "includes/footer.php"; ?>
 <!------------------------------------------------ //Footer Part ------------------------------------------------>         
 	
+<script>
+     $(window).load(function(){
+   setTimeout(function(){
+       $('#enquiryForm').modal('show');
+   }, 10000);
+});
+</script>
 </html>

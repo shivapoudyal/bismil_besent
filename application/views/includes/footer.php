@@ -66,7 +66,8 @@
 						</div>
 						<div class="box-info-body">
 							<p>We are open on</p>
-							<h4>Mon - Fri 08:00 - 20:00</h4>
+							<!--<h4>Mon - Fri 08:00 - 20:00</h4>-->
+							<h4>24*7</h4>
 						</div>
 					</div>
 				</div>
@@ -86,9 +87,9 @@
 				<div class="col-sm-4 col-md-4">
 					<div class="footer-item">
 						<div class="footer-title">
-							<h5>ABOUT PEST<span>CO</span></h5>
+							<h5>ABOUT AP<span>SO</span></h5>
 						</div>
-						<p>This template is a micro niche for business categories, namely Pestco - Pest Control Template. there was an excess of this template is using HTML/CSS. Condimentum aliquam, mollit magna velit nec, tempor cursus vitae sit aliquet neque purus. Ultrices lacus proin conubia dictum tempus, tempor pede vitae faucibus</p>
+						<p class="equalAlign"><b style='color:white'>APSO Services Pvt. Ltd. </b><?php echo who_we_are?></p>
 					</div>
 				</div>
 				<div class="col-sm-4 col-md-4">
@@ -109,10 +110,10 @@
 							<h5>COMPANY</h5>
 						</div>
 						<ul class="list">
-							<li><a href="" title="">About Us</a></li>
+							<li><a href="<?=base_url('about-us')?>" title="">About Us</a></li>
 							<li><a href="" title="">Faq</a></li>
 							<li><a href="#" title="">Support</a></li>
-							<li><a href="" title="">Contact</a></li>
+							<li><a href="<?=base_url('contact-us')?>" title="">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -122,7 +123,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
-						<p class="fsos">PESTCO SOCIAL</p>
+						<p class="fsos">APSO SOCIAL</p>
 						<div class="footer-sosmed">
 							<a href="#" title="">
 								<div class="item">
@@ -163,7 +164,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
-						<p class="ftex">&copy; 2020 Pestco - All Rights Reserved</p> 
+						<p class="ftex">&copy; 2020 Apso - All Rights Reserved</p> 
 					</div>
 				</div>
 			</div>
@@ -198,3 +199,5 @@
     }
 
 </script>
+
+

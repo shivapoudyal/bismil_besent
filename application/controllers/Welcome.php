@@ -20,11 +20,23 @@ class Welcome extends CI_Controller {
          * Method : Index
 	 * Created by:Shiva
          * Created At : 29-06-2020
-         * Description : It is using to load index page 
+         * Description : It is using to load about page 
 	 */
     
 	public function about_us()
 	{
 		$this->load->view('about_usView');
+	}
+        
+        /**
+         * Method : Index
+	 * Created by:Shiva
+         * Created At : 04-07-2020
+         * Description : It is using to load contact us page 
+	 */
+    
+	public function contact_us()
+	{
+		$this->load->view('contactUsView');
 	}
 }
