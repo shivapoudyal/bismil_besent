@@ -55,7 +55,7 @@
 						</div>
 						<div class="box-info-body">
 							<p>Have a question? call us now</p>
-                                                        <h6><b>+91 7678929880, +91 9953589905</b></h6>
+                                                        <h6><b><a href="tel:+91 7678929880">+91 7678929880</a>, <a href="tel:+91 9953589905">+91 9953589905</a></b></h6>
 						</div>
 					</div>
 				</div>

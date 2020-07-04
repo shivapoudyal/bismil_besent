@@ -6,7 +6,7 @@
 						<div class="info">
 							<div class="info-item">
                                                             <span class="fa fa-phone"></span> <a href="tel:+91 7678929880">+91 7678929880</a> 
-                                                                <span class="fa fa-phone" style="margin-left: 10px"></span> +91 9953589905
+                                                                <span class="fa fa-phone" style="margin-left: 10px"></span>  <a href="tel:+91 9953589905">+91 9953589905</a>
 							</div>
                                                     
                                                                                                           
