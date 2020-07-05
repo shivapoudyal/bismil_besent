@@ -125,7 +125,7 @@
 					<div class="col-sm-12 col-md-12">
 						<p class="fsos">APSO SOCIAL</p>
 						<div class="footer-sosmed">
-							<a href="#" title="">
+                                                    <a href="https://www.facebook.com/APSO-Services-Pvt-Ltd-103838034418791/" title="Facebook" target="_blank">
 								<div class="item">
 									<i class="fa fa-facebook"></i>
 								</div>
@@ -150,7 +150,7 @@
 									<i class="fa fa-instagram"></i>
 								</div>
 							</a>
-							<a href="#" title="">
+							<a href="https://www.linkedin.com/company/apso-services-private-limited/" title="LinkedIn" target="_blank">
 								<div class="item">
 									<i class="fa fa-linkedin"></i>
 								</div>
@@ -200,4 +200,16 @@
 
 </script>
 
+<?php $method = $this->router->fetch_method(); 
+if($method != "contact_us"){
+?>
 
+<script>
+     $(window).load(function(){
+   setTimeout(function(){
+       $('#enquiryForm').modal('show');
+   }, 10000);
+});
+</script>
+
+<?php } ?>

@@ -596,11 +596,5 @@
 <?php include "includes/footer.php"; ?>
 <!------------------------------------------------ //Footer Part ------------------------------------------------>         
 	
-<script>
-     $(window).load(function(){
-   setTimeout(function(){
-       $('#enquiryForm').modal('show');
-   }, 10000);
-});
-</script>
+
 </html>

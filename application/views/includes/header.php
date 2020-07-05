@@ -1,3 +1,27 @@
+<?php 
+$method = $this->router->fetch_method();
+
+$classIndex = "";
+$classAboutus = "";
+$classContactus = "";
+
+if($method == "index"){
+    $classIndex = "active";
+    $classAboutus = "";
+    $classContactus = "";
+}
+if($method == "about_us"){
+    $classIndex = "";
+    $classAboutus = "active";
+    $classContactus = "";
+}
+if($method == "contact_us"){
+    $classIndex = "";
+    $classAboutus = "";
+    $classContactus = "active";
+}
+?>
+
 <div class="navbar navbar-main navbar-fixed-top">
 		<div class="container">
 			<div class="row bg-white">
@@ -40,11 +64,11 @@
 			</div>
 			<nav class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<?php echo base_url()?>">HOME</a></li>
-					<li><a href="<?php echo base_url('about-us')?>">ABOUT US</a></li>
-					<li><a href="">SERVICES</a></li>
+                                    <li class="<?php echo $classIndex?>"><a href="<?php echo base_url()?>">HOME</a></li>
+                                    <li class="<?php echo $classAboutus?>"><a href="<?php echo base_url('about-us')?>">ABOUT US</a></li>
+                                    <li><a href="">SERVICES</a></li>
 					<li><a href="">BLOG</a></li>
-					<li><a href="<?php echo base_url('contact-us')?>">CONTACT</a></li>
+					<li class="<?php echo $classContactus?>"><a href="<?php echo base_url('contact-us')?>">CONTACT</a></li>
 					<li class="dropdown">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PAGES <span class="caret"></span></a>
 					  <ul class="dropdown-menu">
@@ -86,6 +110,23 @@
 </style>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a href="https://api.whatsapp.com/send?phone=+917678929880&text=Hello Apso," class="float" target="_blank">
+<a href="https://api.whatsapp.com/send?phone=+917678929880&text=Hello" class="float" target="_blank">
 <i class="fa fa-whatsapp my-float"></i>
 </a>
+
+
+
+<!----- Live Chat Module ----------- >
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5f00b6c2223d045fcb7b4fd1/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
