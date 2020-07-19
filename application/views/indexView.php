@@ -124,9 +124,9 @@
 					</div>
 				</div>
 				<div class="col-sm-4 col-md-4">
-		<!------------------------------------------------ Header Part ------------------------------------------------> 
-                    <?php include "includes/enquiry_form.php"; ?>
-                <!------------------------------------------------ //Header Part ------------------------------------------>
+                                <!------------------------------------------------ Header Part ------------------------------------------------> 
+                                    <?php include "includes/enquiry_form.php"; ?>
+                                <!------------------------------------------------ //Header Part ------------------------------------------>
 				</div>
 			</div>
 		</div>
@@ -134,114 +134,40 @@
 	<!-- PEST CONTROL -->
 	<div class="section pest-control bgc">
 		<div class="container">
+                    <?php foreach($data as $key => $val){
+                        $service_id = $val["id"];
+                    ?>
 			<div class="row">
-				<div class="col-sm-6 col-md-6">
+				<div class="col-sm-12 col-md-12">
 					<div class="section-title">
-						<h3 class="lead">PEST CONTROL</h3>
+                                            <h3 class="lead"><?php echo strtoupper($val['service_name'])?></h3>
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-6">
-					<a href="#" title="" class="btn btn-default pull-right btn-view-all">VIEW ALL PEST CONTROL</a>
-				</div>
+				
 			</div>
+                    
 			<div class="row">
+                            <?php 
+                            $child_services = $this->AdminModel->getChildServiceList($service_id);
+                                foreach($child_services as $chilkey => $childval){
+                                    $service_image = $childval['service_image'];
+                            ?>
 				<div class="col-sm-4 col-md-3">
 					<div class="box-image">
 						<div class="image">
-							<a href="index.html" title=""><img src="<?php echo base_url()?>assets/images/pest-1.jpg" alt="" class="img-responsive"></a>
+                                                    <a href="<?php echo base_url('service_part/').$childval['meta_url']?>" title=""><img src="<?php echo base_url(sub_service_image_upload_path.$service_image)?>" alt="" class="img-responsive"></a>
 						</div>
 						<div class="description">
 							<h5 class="blok-title">
-								<a href="index.html" title="">COCKROACH CONTROL</a>
+								<a href="<?php echo base_url('service_part/').$childval['meta_url']?>" title="<?php echo strtoupper($childval['sub_service_name'])?>"><?php echo strtoupper($childval['sub_service_name'])?></a>
 							</h5>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-4 col-md-3">
-					<div class="box-image">
-						<div class="image">
-							<a href="index.html" title=""><img src="<?php echo base_url()?>assets/images/pest-2.jpg" alt="" class="img-responsive"></a>
-						</div>
-						<div class="description">
-							<h5 class="blok-title">
-								<a href="index.html" title="">FLY CONTROL</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 col-md-3">
-					<div class="box-image">
-						<div class="image">
-							<a href="index.html" title=""><img src="<?php echo base_url()?>assets/images/pest-3.jpg" alt="" class="img-responsive"></a>
-						</div>
-						<div class="description">
-							<h5 class="blok-title">
-								<a href="index.html" title="">YELLOW JACKET CONTROL</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 col-md-3">
-					<div class="box-image">
-						<div class="image">
-							<a href="index.html" title=""><img src="<?php echo base_url()?>assets/images/pest-4.jpg" alt="" class="img-responsive"></a>
-						</div>
-						<div class="description">
-							<h5 class="blok-title">
-								<a href="index.html" title="">CARPENTER BEES CONTROL</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 col-md-3">
-					<div class="box-image">
-						<div class="image">
-							<a href="index.html" title=""><img src="<?php echo base_url()?>assets/images/pest-5.jpg" alt="" class="img-responsive"></a>
-						</div>
-						<div class="description">
-							<h5 class="blok-title">
-								<a href="index.html" title="">MOSQUITO CONTROL</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 col-md-3">
-					<div class="box-image">
-						<div class="image">
-							<a href="index.html" title=""><img src="<?php echo base_url()?>assets/images/pest-6.jpg" alt="" class="img-responsive"></a>
-						</div>
-						<div class="description">
-							<h5 class="blok-title">
-								<a href="index.html" title="">TERMITE CONTROL</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 col-md-3">
-					<div class="box-image">
-						<div class="image">
-							<a href="index.html" title=""><img src="<?php echo base_url()?>assets/images/pest-7.jpg" alt="" class="img-responsive"></a>
-						</div>
-						<div class="description">
-							<h5 class="blok-title">
-								<a href="index.html" title="">ANT CONTROL</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 col-md-3">
-					<div class="box-image">
-						<div class="image">
-							<a href="index.html" title=""><img src="<?php echo base_url()?>assets/images/pest-8.jpg" alt="" class="img-responsive"></a>
-						</div>
-						<div class="description">
-							<h5 class="blok-title">
-								<a href="index.html" title="">RODENT CONTROL</a>
-							</h5>
-						</div>
-					</div>
-				</div>
+                                <?php } ?>
+				
 			</div>
+                    <?php } ?>
 		</div>
 	</div>
 	<!-- STATS -->

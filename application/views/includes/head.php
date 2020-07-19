@@ -4,10 +4,22 @@
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pestco - Pest Control Service</title>
-    <meta name="description" content="Pestco - Pest Control Template. It is built using bootstrap 3.3.2 framework, works totally responsive, easy to customise, well commented codes and seo friendly.">
-    <meta name="keywords" content="pestco, pest, control, industry, termite, bootstrap">
-    <meta name="author" content="rudhisasmito.com"> 
+    
+    <?php 
+    $method = $this->router->fetch_method();
+    if(($method == "index") || ($method == "about_us") || ($method == "contact_us")){
+    ?>
+    
+        <title><?php echo static_meta_tile?></title>
+        <meta name="description" content="<?php echo static_meta_description?>">
+        <meta name="keywords" content="<?php echo static_meta_keywords?>">
+    
+    <?php } else{ ?>
+        <title><?php echo $data['meta_title']?></title>
+        <meta name="description" content="<?php echo $data['meta_description']?>">
+        <meta name="keywords" content="<?php echo $data['meta_keywords']?>">
+    <?php } ?>
+    <meta name="author" content="apsos.in"> 
 	<!-- ==============================================
 	Favicons
 	=============================================== -->

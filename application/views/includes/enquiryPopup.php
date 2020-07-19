@@ -25,8 +25,9 @@
                                                              <select class="form-control " style="height: 40px; color: #CEA686" required>
                                                                 <option value="">Select Service </option>
                                                                 <?php 
-                                                                foreach(enquiryForm_services as $val){
-                                                                    echo "<option>$val</option>";
+                                                                foreach(servicesListActive() as $val => $key){
+                                                                    $service_image = $key['service_name'];
+                                                                    echo "<option>$service_image</option>";
                                                                 }
                                                                 ?>
                                                             </select>

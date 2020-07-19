@@ -3129,3 +3129,25 @@ p.help-block.text-danger li {
 		font-size: 16px;
 	}
 }
+
+
+ .customNavStyle{
+        display: none;
+        position: absolute;
+        right: -220px !important;
+        top:-10px;
+        /*margin-top: -50px;*/}
+        
+        @media(max-width:768px){
+            
+            .customNavStyle{
+        display: none;
+        position: relative;
+        right: 0px !important;
+        top:0px;
+        /*margin-top: -50px;*/
+        }
+        .dropdown-menu > li > a{color:#333}
+    }
+    
+    

@@ -1,6 +1,6 @@
 <div class="blok quotes">
 						<div class="blok-title">
-							<span>SCHEDULE</span> <br>A FREE INSPECTION
+                                                    <span>SCHEDULE</span> <br> <b style="color:white">A FREE INSPECTION</b>
 						</div>
 						<form action="#" class="form-contact shake" id="contactForm"  data-toggle="validator">
 							<div class="form-group">
@@ -21,8 +21,9 @@
                                                              <select class="form-control " style="height: 40px; color: #CEA686" required>
                                                                 <option value="">Select Service </option>
                                                                 <?php 
-                                                                foreach(enquiryForm_services as $val){
-                                                                    echo "<option>$val</option>";
+                                                                foreach(servicesListActive() as $val => $key){
+                                                                    $service_image = $key['service_name'];
+                                                                    echo "<option>$service_image</option>";
                                                                 }
                                                                 ?>
                                                             </select>

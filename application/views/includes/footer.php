@@ -201,7 +201,7 @@
 </script>
 
 <?php $method = $this->router->fetch_method(); 
-if($method != "contact_us"){
+if($method != "contact_us" && $method != "service" ){
 ?>
 
 <script>

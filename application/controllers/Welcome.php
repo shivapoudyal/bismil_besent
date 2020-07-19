@@ -11,9 +11,19 @@ class Welcome extends CI_Controller {
          * Description : It is using to load index page 
 	 */
     
+          public function __construct() {
+            parent::__construct();
+
+            $this->load->model("AdminModel");
+
+        }
+    
 	public function index()
 	{
-		$this->load->view('indexView');
+                $this->load->model("AdminModel");
+                $data['data'] = $this->AdminModel->getParentServcieList(); 
+                //printdie($data);
+		$this->load->view('indexView', $data);
 	}
         
         /**
@@ -39,4 +49,25 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('contactUsView');
 	}
+        
+        /**
+         * Method : Index
+	 * Created by:Shiva
+         * Created At : 04-07-2020
+         * Description : It is using to load contact us page 
+	 */
+    
+	public function service()
+	{
+		$this->load->view('serviceView');
+	}
+        
+        public function service_part($id)
+	{ 
+                $this->load->model("AdminModel");
+                $data["data"] = $this->AdminModel->getSubServiceDetailsById($id);
+		$this->load->view('sub_serviceViewFrontend', $data);
+	}
+        
+        
 }

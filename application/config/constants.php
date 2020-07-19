@@ -97,3 +97,10 @@ defined('enquiryForm_services')      OR define ("enquiryForm_services", array ("
 defined('who_we_are_aboutUs')      OR define('who_we_are_aboutUs', "APSO’s effective Pest Management addresses the current infestation problem, the overall risk to your property, and sets out a safe application of approved, registered & safest chemicals to treat the infestation. Effective Pest Management goes far beyond simply spraying an infested area for bugs! Safe Affordable Reliable Pest Management is our core business. We want to encourage hygiene, cleanliness & environmental conservation");
 
 defined('popular_cities')      OR define('popular_cities', "Delhi NCR, Mumbai, Chennai, Kolkata, Bangalore, Jaipur, Lucknows");
+
+defined('image_upload_path') OR define("image_upload_path", 'admin_assets/uploadedServiceImages/');
+defined('sub_service_image_upload_path') OR define("sub_service_image_upload_path", 'admin_assets/uploadedSubServiceImages/');
+
+defined('static_meta_tile') OR define("static_meta_tile", "Apso - Pest control and hygiene services");
+defined('static_meta_keywords') OR define("static_meta_keywords", "Apso - Pest control and hygiene services");
+defined('static_meta_description') OR define("static_meta_description", "Apso - Pest control and hygiene services");
