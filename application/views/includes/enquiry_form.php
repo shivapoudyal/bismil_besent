@@ -21,11 +21,29 @@
                                                              <select class="form-control " style="height: 40px; color: #CEA686" required>
                                                                 <option value="">Select Service </option>
                                                                 <?php 
-                                                                foreach(servicesListActive() as $val => $key){
-                                                                    $service_image = $key['service_name'];
-                                                                    echo "<option>$service_image</option>";
-                                                                }
+//                                                                foreach(servicesListActive() as $val => $key){
+//                                                                    $service_image = $key['service_name'];
+//                                                                    echo "<option>$service_image</option>";
+//                                                                }
+                                                                
+                                                                    foreach(servicesListActive() as $key => $val){
+                                                                    $service_id = $val["id"];
+                                                                    $service_name = $val['service_name'];
                                                                 ?>
+                                                                
+                                                                <option><?php echo $service_name;?></option>
+                                                                
+                                                                    <?php 
+                                                                        foreach(getChildServiceList($service_id) as $chilkey => $childval){
+                                                                        $sub_service_name = $childval['sub_service_name'];
+                                                                    ?>
+                                                                
+                                                                    <option>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sub_service_name;?></option>
+                                                                
+                                                                <?php } ?>
+                                                                <?php } ?>
+                                                                
+                                                               
                                                             </select>
                                                              <div class="help-block with-errors"></div>
 							</div>

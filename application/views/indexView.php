@@ -155,11 +155,11 @@
 				<div class="col-sm-4 col-md-3">
 					<div class="box-image">
 						<div class="image">
-                                                    <a href="<?php echo base_url('service_part/').$childval['meta_url']?>" title=""><img src="<?php echo base_url(sub_service_image_upload_path.$service_image)?>" alt="" class="img-responsive"></a>
+                                                    <a href="<?php echo base_url('services/').$childval['meta_url']?>" title=""><img src="<?php echo base_url(sub_service_image_upload_path.$service_image)?>" alt="" class="img-responsive"></a>
 						</div>
 						<div class="description">
 							<h5 class="blok-title">
-								<a href="<?php echo base_url('service_part/').$childval['meta_url']?>" title="<?php echo strtoupper($childval['sub_service_name'])?>"><?php echo strtoupper($childval['sub_service_name'])?></a>
+								<a href="<?php echo base_url('services/').$childval['meta_url']?>" title="<?php echo strtoupper($childval['sub_service_name'])?>"><?php echo strtoupper($childval['sub_service_name'])?></a>
 							</h5>
 						</div>
 					</div>
@@ -312,76 +312,40 @@
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-6">
-					<a href="#" title="" class="btn btn-default pull-right btn-view-all">VIEW ALL NEWS</a>
+                                    <a href="<?php echo base_url('bloglist')?>" title="" class="btn btn-default pull-right btn-view-all">VIEW ALL NEWS</a>
 				</div>
 			</div>
 			<div class="row">
+                            <?php 
+                                foreach(getRecentBlogs() as $bkey => $bval){
+                                    $blog_id = $bval['id'];
+                                    $blog_url = $bval['meta_url'];
+                                    $blog_image = $bval['blog_image'];
+                                    $comment_count = getCommentCounting($blog_id)['comment_count'];
+                            ?>
 				<div class="col-sm-4 col-md-4">
 					<div class="blog-item">
 						<div class="gambar">
-							<img src="<?php echo base_url()?>assets/images/blog-1.jpg" alt="" class="img-responsive">
+                                                    <img src="<?php echo base_url(blog_image_upload_path.$blog_image)?>" alt="" class="img-responsive" style="height: 225px">
 						</div>
 						<div class="item-body">
 							<div class="metadate">
-								<div class="month">AUG</div>
-								<div class="date">14, 2016</div>
+								<div class="month"><?php echo $bval["created_month"]?></div>
+								<div class="date"><?php echo $bval["created_day"]?>, <?php echo $bval["created_year"]?></div>
 							</div>
 							<div class="description">
 								<h4>
-									<a href="demo/Apso/blog-detail.html" title="">Heading of Blog</a>
+                                                                    <a href="<?php echo base_url('blogs/').$blog_url?>" title=""><?php echo strtoupper($bval['blog_heading'])?></a>
 								</h4>
 								<p class="postby">
-									by <a href="#" title="">Admin</a> <span>/</span> 3 <a href="#" title="">Comments</a>
+									by Admin <span>/</span> <?php echo $comment_count?> Comments
 								</p>
-								<p>Lorem ipsum dolor sit amet libero turpis non cras ligula id commodo aenean est in volutpat amet sodales porttitor bibendum facilisi suspendisse aliquam ipsum ante morbi sed ipsum mollis. Sollicitudin viverra vel varius eget sit mollis.</p>
+                                                                <p class="equalAlign"><?php echo excerptShow($bval["about"], 235); ?></p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-4 col-md-4">
-					<div class="blog-item">
-						<div class="gambar">
-							<img src="<?php echo base_url()?>assets/images/blog-2.jpg" alt="" class="img-responsive">
-						</div>
-						<div class="item-body">
-							<div class="metadate">
-								<div class="month">AUG</div>
-								<div class="date">14, 2016</div>
-							</div>
-							<div class="description">
-								<h4>
-									<a href="demo/Apso/blog-detail.html" title="">Heading of Blog</a>
-								</h4>
-								<p class="postby">
-									by <a href="#" title="">Admin</a> <span>/</span> 3 <a href="#" title="">Comments</a>
-								</p>
-								<p>Lorem ipsum dolor sit amet libero turpis non cras ligula id commodo aenean est in volutpat amet sodales porttitor bibendum facilisi suspendisse aliquam ipsum ante morbi sed ipsum mollis. Sollicitudin viverra vel varius eget sit mollis.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 col-md-4">
-					<div class="blog-item">
-						<div class="gambar">
-							<img src="<?php echo base_url()?>assets/images/blog-3.jpg" alt="" class="img-responsive">
-						</div>
-						<div class="item-body">
-							<div class="metadate">
-								<div class="month">AUG</div>
-								<div class="date">14, 2016</div>
-							</div>
-							<div class="description">
-								<h4>
-									<a href="demo/Apso/blog-detail.html" title="">Heading of Blog</a>
-								</h4>
-								<p class="postby">
-									by <a href="#" title="">Admin</a> <span>/</span> 3 <a href="#" title="">Comments</a>
-								</p>
-								<p>Lorem ipsum dolor sit amet libero turpis non cras ligula id commodo aenean est in volutpat amet sodales porttitor bibendum facilisi suspendisse aliquam ipsum ante morbi sed ipsum mollis. Sollicitudin viverra vel varius eget sit mollis.</p>
-							</div>
-						</div>
-					</div>
-				</div>
+                                <?php } ?>
 			</div>
 		</div>
 	</div>
@@ -403,13 +367,14 @@
 							<div class="item-testimony">
 								<div class="quote-box">
 									<blockquote class="quote">
-									 Smart Template - libero turpis non cras ligula id commodo aenean est in volutpat amet sodales porttitor bibendum facilisi suspendisse aliquam ipsum ante morbi sed ipsum mollis.
+									 I have taken service for pest for my home now I am satisfied & I can say the treatment has done by Apsos services. thanks. Apsos Services
 									</blockquote>
 								</div>
+                                                            
 								<div class="people">
-									<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-2.jpg" alt="">
+									<!--<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-2.jpg" alt="">-->
 									<p class="details">
-										Johnathan Doel <span>CEO Buka Kreasi</span>
+										Monika Malhotra <span>Delhi</span>
 									</p>                        
 								</div>
 								<div class="icon"><span class="fa fa-quote-left"></span></div>
@@ -419,13 +384,13 @@
 							<div class="item-testimony">
 								<div class="quote-box">
 									<blockquote class="quote">
-									 Smart Template - libero turpis non cras ligula id commodo aenean est in volutpat amet sodales porttitor bibendum facilisi suspendisse aliquam ipsum ante morbi sed ipsum mollis.
+									 The greatest problem of bed bugs in my home and  I called from this Apsos pest control. Their response was good. They sort out of the bed bug problem and they gave  6 months for the warranty period.
 									</blockquote>
 								</div>
 								<div class="people">
-									<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-3.jpg" alt="">
+									<!--<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-3.jpg" alt="">-->
 									<p class="details">
-										Johnathan Doel <span>CEO Buka Kreasi</span>
+										Dipti Rawat <span>Noida</span>
 									</p>                        
 								</div>
 								<div class="icon"><span class="fa fa-quote-left"></span></div>
@@ -435,13 +400,13 @@
 							<div class="item-testimony">
 								<div class="quote-box">
 									<blockquote class="quote">
-									 Smart Template - libero turpis non cras ligula id commodo aenean est in volutpat amet sodales porttitor bibendum facilisi suspendisse aliquam ipsum ante morbi sed ipsum mollis.
+									 This is the best pest removing company in Delhi NCR. They provide a 1-year guarantee treatment certificate. Really love their work and highly recommended them.
 									</blockquote>
 								</div>
 								<div class="people">
-									<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-4.jpg" alt="">
+									<!--<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-4.jpg" alt="">-->
 									<p class="details">
-										Johnathan Doel <span>CEO Buka Kreasi</span>
+										Raman Attri <span>Mumbai</span>
 									</p>                        
 								</div>
 								<div class="icon"><span class="fa fa-quote-left"></span></div>
@@ -451,13 +416,13 @@
 							<div class="item-testimony">
 								<div class="quote-box">
 									<blockquote class="quote">
-									 Smart Template - libero turpis non cras ligula id commodo aenean est in volutpat amet sodales porttitor bibendum facilisi suspendisse aliquam ipsum ante morbi sed ipsum mollis.
+									 I can recommend Apsos pest control to everyone because it gives assured service and their job is professional. I always prefer it to the best service. I was very much satisfied with their work in removing the honeycomb.
 									</blockquote>
 								</div>
 								<div class="people">
-									<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-5.jpg" alt="">
+									<!--<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-5.jpg" alt="">-->
 									<p class="details">
-										Johnathan Doel <span>CEO Buka Kreasi</span>
+										Sudhanshu Pareek <span>Lucknow</span>
 									</p>                        
 								</div>
 								<div class="icon"><span class="fa fa-quote-left"></span></div>
@@ -467,50 +432,20 @@
 							<div class="item-testimony">
 								<div class="quote-box">
 									<blockquote class="quote">
-									 Smart Template - libero turpis non cras ligula id commodo aenean est in volutpat amet sodales porttitor bibendum facilisi suspendisse aliquam ipsum ante morbi sed ipsum mollis.
+									 I was suffering a lot of trouble from bed bugs so I availed their service and they also provided a 1year contract. These guys really did a great job so I can suggest Apsos.
 									</blockquote>
 								</div>
 								<div class="people">
-									<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-6.jpg" alt="">
+									<!--<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-6.jpg" alt="">-->
 									<p class="details">
-										Johnathan Doel <span>CEO Buka Kreasi</span>
+										Ashish Tamale <span>Pune</span>
 									</p>                        
 								</div>
 								<div class="icon"><span class="fa fa-quote-left"></span></div>
 							</div>
 						</div>
-						<div class="item">
-							<div class="item-testimony">
-								<div class="quote-box">
-									<blockquote class="quote">
-									 Smart Template - libero turpis non cras ligula id commodo aenean est in volutpat amet sodales porttitor bibendum facilisi suspendisse aliquam ipsum ante morbi sed ipsum mollis.
-									</blockquote>
-								</div>
-								<div class="people">
-									<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-7.jpg" alt="">
-									<p class="details">
-										Johnathan Doel <span>CEO Buka Kreasi</span>
-									</p>                        
-								</div>
-								<div class="icon"><span class="fa fa-quote-left"></span></div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="item-testimony">
-								<div class="quote-box">
-									<blockquote class="quote">
-									 Smart Template - libero turpis non cras ligula id commodo aenean est in volutpat amet sodales porttitor bibendum facilisi suspendisse aliquam ipsum ante morbi sed ipsum mollis.
-									</blockquote>
-								</div>
-								<div class="people">
-									<img class="img-rounded user-pic" src="<?php echo base_url()?>assets/images/testimony-thumb-4.jpg" alt="">
-									<p class="details">
-										Johnathan Doel <span>CEO Buka Kreasi</span>
-									</p>                        
-								</div>
-								<div class="icon"><span class="fa fa-quote-left"></span></div>
-							</div>
-						</div>
+						
+						
 					</div>
 				</div>
 			</div>

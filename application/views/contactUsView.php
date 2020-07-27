@@ -64,7 +64,7 @@
 				</div>
 				<div class="col-sm-12 col-md-12">
 					<div class="maps-wraper">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7009.235428933777!2d77.34457858870094!3d28.551208139053873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scorporate%20office%20near%20Sector-45%2C%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1593857265355!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                            
 						
 <!--						<div id="maps" class="maps" data-lat="-7.452278" data-lng="112.708992" data-marker="images/cd-icon-location.png">
 						</div>-->
@@ -94,11 +94,27 @@
 								 <select class="form-control " style="height: 40px; color: #CEA686" required>
                                                                  <option value="">Select Service </option>
                                                                 <?php 
-                                                                foreach(servicesListActive() as $val => $key){
-                                                                    $service_image = $key['service_name'];
-                                                                    echo "<option>$service_image</option>";
-                                                                }
+//                                                                foreach(servicesListActive() as $val => $key){
+//                                                                    $service_image = $key['service_name'];
+//                                                                    echo "<option>$service_image</option>";
+//                                                                }
+                                                                
+                                                                    foreach(servicesListActive() as $key => $val){
+                                                                    $service_id = $val["id"];
+                                                                    $service_name = $val['service_name'];
                                                                 ?>
+                                                                
+                                                                <option><?php echo $service_name;?></option>
+                                                                
+                                                                    <?php 
+                                                                        foreach(getChildServiceList($service_id) as $chilkey => $childval){
+                                                                        $sub_service_name = $childval['sub_service_name'];
+                                                                    ?>
+                                                                
+                                                                    <option>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sub_service_name;?></option>
+                                                                
+                                                                <?php } ?>
+                                                                <?php } ?>
                                                             </select>
 								<div class="help-block with-errors"></div>
 							</div>

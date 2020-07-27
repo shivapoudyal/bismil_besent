@@ -100,6 +100,7 @@ defined('popular_cities')      OR define('popular_cities', "Delhi NCR, Mumbai, C
 
 defined('image_upload_path') OR define("image_upload_path", 'admin_assets/uploadedServiceImages/');
 defined('sub_service_image_upload_path') OR define("sub_service_image_upload_path", 'admin_assets/uploadedSubServiceImages/');
+defined('blog_image_upload_path') OR define("blog_image_upload_path", 'admin_assets/uploadedBlogImages/');
 
 defined('static_meta_tile') OR define("static_meta_tile", "Apso - Pest control and hygiene services");
 defined('static_meta_keywords') OR define("static_meta_keywords", "Apso - Pest control and hygiene services");

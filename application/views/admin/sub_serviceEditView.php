@@ -33,7 +33,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!-- validation -->
 				<div class="grids">
 					<div class="progressbar-heading grids-heading">
-						<h2>Edti Sub Service</h2>
+						<h2>Edit Sub Service</h2>
 					</div>
                                     
                                     <?php if($this->session->flashdata('emsg')) { ?>  

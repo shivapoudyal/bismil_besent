@@ -215,7 +215,7 @@ class Admin extends CI_Controller {
         function sub_servicesList(){
             $config = array();
             $this->load->library('pagination');
-            $config["base_url"] = base_url() . "Admin/servicesList";
+            $config["base_url"] = base_url() . "Admin/sub_servicesList";
             // Set total rows in the result set you are creating pagination for.
             // Number of items you intend to show per page.
             $config["per_page"] = 10;
@@ -288,5 +288,286 @@ class Admin extends CI_Controller {
                 $data["data"] = $this->AdminModel->getSubServiceDetailsById($id);
 		$this->load->view('admin/sub_serviceEditView', $data);
 	}
+        
+        /**
+         * Method : sub_servicesList
+	 * Created by:Shiva
+         * Created At : 11-07-2020
+         * Description : Sub Service List View For Admin
+	 */
+        function blogList(){
+            $config = array();
+            $this->load->library('pagination');
+            $config["base_url"] = base_url() . "Admin/blogList";
+            // Set total rows in the result set you are creating pagination for.
+            // Number of items you intend to show per page.
+            $config["per_page"] = 10;
+            // Use pagination number for anchor URL.
+            $config['use_page_numbers'] = TRUE;
+            $search["search"] = $this->input->get();
+            $search["per_page"] = $config["per_page"];
+            //Set that how many number of pages you want to view.
+            $total_row = $this->AdminModel->totalBlogs($search);
+
+            $config["total_rows"] = $total_row;
+            $config['num_links'] = 2;
+            // Open tag for CURRENT link.
+            $config['first_tag_open'] = $config['last_tag_open'] = $config['next_tag_open'] = $config['prev_tag_open'] = $config['num_tag_open'] = '<li>';
+            $config['first_tag_close'] = $config['last_tag_close'] = $config['next_tag_close'] = $config['prev_tag_close'] = $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='active'><a>";
+            $config['cur_tag_close'] = "</a></li>";
+            // By clicking on performing NEXT pagination.
+            $config['next_link'] = 'Next';
+            // By clicking on performing PREVIOUS pagination.
+            $config['prev_link'] = 'Previous';
+            $is_applied = $this->input->get('is_applied_filter');
+            $_GET['is_applied_filter'] = 0;
+            if (count($_GET) > 0) {
+                $config['suffix'] = '?' . http_build_query($_GET, '', "&");
+                $config['first_url'] = $config['base_url'] . '?' . http_build_query($_GET);
+            }
+
+            if ($is_applied == 1) {
+                redirect($config['base_url'] . '?' . http_build_query($_GET));
+            }
+            // To initialize "$config" array and set to pagination library.
+            $this->pagination->initialize($config);
+            if ($this->uri->segment(3)) {
+                $page = ($this->uri->segment(3));
+            } else {
+                $page = 1;
+            }
+
+            $data["total"] = $total_row;
+            $data["list"] = $this->AdminModel->blogList($search, $page);
+            $str_links = $this->pagination->create_links();
+            $data["links"] = explode('&nbsp;', $str_links);
+            $data['per_page_cnt'] = $config["per_page"];
+            //printdie($data);
+            $this->load->view('admin/blogListView', $data);
+        }
+        
+        /**
+         * Method : addBlog
+	 * Created by:Shiva
+         * Created At : 11-07-2020
+         * Description : Admin Service Add View
+	 */
+    
+	public function addBlog()
+	{
+		$this->load->view('admin/blogAddView');
+	}
+        
+        /**
+         * Method : saveBlog
+	 * Created by:Shiva
+         * Created At : 11-07-2020
+         * Description : Save Blog from admin side
+	 */
+        function saveBlog(){
+            
+            //printdie($_FILES);
+            $dataArr = $_POST;
+            $table_name = "";
+            $id = $this->input->post("id");
+                        
+            if(trim(empty($this->input->post("service_id")))){
+                $this->session->set_flashdata('emsg', 'Please Select Service');
+                if(!empty($id) || $id > 0){
+                        redirect('Admin/editBlog');
+                }
+                else{
+                    redirect('Admin/addBlog');
+                }
+            }
+            
+            else if(trim(empty($this->input->post("blog_heading")))){
+                $this->session->set_flashdata('emsg', 'Please Enter Blog Heading');
+                if(!empty($id) || $id > 0){
+                        redirect('Admin/editBlog');
+                }
+                else{
+                    redirect('Admin/addBlog');
+                }
+            }
+            
+            else if(empty($_FILES["blog_image"]["name"]) && (empty($id))){
+                $this->session->set_flashdata('emsg', 'Please Select Image');
+                redirect('Admin/addBlog');                  
+            }
+            
+//            else if(trim(empty($this->input->post("about")))){
+//                $this->session->set_flashdata('emsg', 'Please Enter Some Keywords About Blog');
+//                if(!empty($id) || $id > 0){
+//                        redirect('Admin/editBlog');
+//                }
+//                else{
+//                    redirect('Admin/addBlog');
+//                }
+//            }
+            
+            else{
+                if(!empty($_FILES["blog_image"]["name"])){
+                    $fileName = $this->AdminModel->uploadBlogImage($_FILES, $id);
+                    $dataArr["blog_image"] = $fileName;
+                }
                 
+                $res = $this->AdminModel->saveBlogsIntoDb($dataArr, $id);
+                
+                if($res["status"] == true || $res["status"] == 1){
+                    $this->session->set_flashdata('smsg', $res["msg"]);
+                    redirect('Admin/blogList');                    
+                }
+                else{
+                    $this->session->set_flashdata('emsg', $res["msg"]);
+                    if(!empty($id) || $id > 0){
+                        redirect('Admin/editBlog');
+                }
+                else{
+                    redirect('Admin/addBlog');
+                }
+                    
+                }
+            }
+        }
+        
+          /**
+         * Method : editBlog
+	 * Created by:Shiva
+         * Created At : 11-07-2020
+         * Description : Sub Service Edit View for admin
+	 */
+    
+	public function editBlog($id)
+	{ 
+                $data["data"] = $this->AdminModel->getBlogAsPerId($id);
+		$this->load->view('admin/blogEditView', $data);
+	}
+        
+        /**
+         * Method : sub_servicesList
+	 * Created by:Shiva
+         * Created At : 11-07-2020
+         * Description : Sub Service List View For Admin
+	 */
+        function blogCommentsList(){
+            $config = array();
+            $this->load->library('pagination');
+            $config["base_url"] = base_url() . "Admin/blogCommentsList";
+            // Set total rows in the result set you are creating pagination for.
+            // Number of items you intend to show per page.
+            $config["per_page"] = 10;
+            // Use pagination number for anchor URL.
+            $config['use_page_numbers'] = TRUE;
+            $search["search"] = $this->input->get();
+            $search["per_page"] = $config["per_page"];
+            //Set that how many number of pages you want to view.
+            $total_row = $this->AdminModel->totalBlogComments($search);
+
+            $config["total_rows"] = $total_row;
+            $config['num_links'] = 2;
+            // Open tag for CURRENT link.
+            $config['first_tag_open'] = $config['last_tag_open'] = $config['next_tag_open'] = $config['prev_tag_open'] = $config['num_tag_open'] = '<li>';
+            $config['first_tag_close'] = $config['last_tag_close'] = $config['next_tag_close'] = $config['prev_tag_close'] = $config['num_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class='active'><a>";
+            $config['cur_tag_close'] = "</a></li>";
+            // By clicking on performing NEXT pagination.
+            $config['next_link'] = 'Next';
+            // By clicking on performing PREVIOUS pagination.
+            $config['prev_link'] = 'Previous';
+            $is_applied = $this->input->get('is_applied_filter');
+            $_GET['is_applied_filter'] = 0;
+            if (count($_GET) > 0) {
+                $config['suffix'] = '?' . http_build_query($_GET, '', "&");
+                $config['first_url'] = $config['base_url'] . '?' . http_build_query($_GET);
+            }
+
+            if ($is_applied == 1) {
+                redirect($config['base_url'] . '?' . http_build_query($_GET));
+            }
+            // To initialize "$config" array and set to pagination library.
+            $this->pagination->initialize($config);
+            if ($this->uri->segment(3)) {
+                $page = ($this->uri->segment(3));
+            } else {
+                $page = 1;
+            }
+
+            $data["total"] = $total_row;
+            $data["list"] = $this->AdminModel->blogCommentList($search, $page);
+            $str_links = $this->pagination->create_links();
+            $data["links"] = explode('&nbsp;', $str_links);
+            $data['per_page_cnt'] = $config["per_page"];
+            //printdie($data);
+            $this->load->view('admin/blogCommentsListView', $data);
+        }
+        
+          /**
+         * Method : editComment
+	 * Created by:Shiva
+         * Created At : 11-07-2020
+         * Description : Sub Service Edit View for admin
+	 */
+    
+	public function editComment($id)
+	{ 
+                $data["data"] = $this->AdminModel->getCommentInfo($id);
+		$this->load->view('admin/blogCommentEditView', $data);
+	}
+        
+         /**
+         * Method : updateBlogComment
+	 * Created by:Shiva
+         * Created At : 11-07-2020
+         * Description : Update comment status
+	 */
+        function updateBlogComment(){
+            $id = $this->input->post("id");
+            $status = $this->input->post("status");
+            $dataArr = $_POST;
+            
+            if(empty($id) || $id == 0){
+                $this->session->set_flashdata('emsg', 'ID is missing');
+                redirect('Admin/blogCommentsList');  
+            }
+            else{
+                $isUpdated = $this->AdminModel->updateBlogComment($id, $status);
+                
+                if($isUpdated){
+                    $this->session->set_flashdata('smsg', 'Data Updated Successfully');
+                    redirect('Admin/blogCommentsList'); 
+                }
+                else{
+                    $this->session->set_flashdata('emsg', 'Data Not Updated');
+                    redirect('Admin/blogCommentsList'); 
+                }
+            }
+        } 
+        
+        /**
+         * Method : delComment
+	 * Created by:Shiva
+         * Created At : 11-07-2020
+         * Description : Update comment status
+	 */
+        function delComment($id){
+            
+            if(empty($id) || $id == 0){
+                $this->session->set_flashdata('emsg', 'ID is missing');
+                redirect('Admin/blogCommentsList');  
+            }
+            else{
+                $isUpdated = $this->AdminModel->delComment($id);
+                
+                if($isUpdated){
+                    $this->session->set_flashdata('smsg', 'Comment Deleted Successfully');
+                    redirect('Admin/blogCommentsList'); 
+                }
+                else{
+                    $this->session->set_flashdata('emsg', 'Comment Not Deleted');
+                    redirect('Admin/blogCommentsList'); 
+                }
+            }
+        } 
 }

@@ -115,21 +115,21 @@
 					</span>
 				</a>
 			</li>-->
-<!--			<li class="has-subnav">
+			<li class="has-subnav">
 				<a href="javascript:;">
 					<i class="fa fa-list-ul" aria-hidden="true"></i>
-					<span class="nav-text">Extras</span>
+					<span class="nav-text">Blog</span>
 					<i class="icon-angle-right"></i><i class="icon-angle-down"></i>
 				</a>
 				<ul>
 					<li>
-						<a class="subnav-text" href="faq.html">FAQ</a>
+						<a class="subnav-text" href="<?= base_url()?>Admin/blogList">Blog List</a>
 					</li>
 					<li>
-						<a class="subnav-text" href="blank.html">Blank Page</a>
+						<a class="subnav-text" href="<?= base_url()?>Admin/blogCommentsList">User Comments</a>
 					</li>
 				</ul>
-			</li>-->
+			</li>
 		</ul>
 		<ul class="logout">
 			<li>

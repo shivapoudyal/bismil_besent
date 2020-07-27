@@ -100,7 +100,7 @@ if($method == "contact_us"){
                                                                                             
 					  </ul>
 					</li>
-                                    <li><a href="">BLOG</a></li>
+                                    <li><a href="<?php echo base_url('bloglist')?>">BLOG</a></li>
 					<li class="<?php echo $classContactus?>"><a href="<?php echo base_url('contact-us')?>">CONTACT</a></li>
 <!--					<li class="dropdown">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PAGES <span class="caret"></span></a>

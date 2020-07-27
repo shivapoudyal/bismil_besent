@@ -98,9 +98,15 @@
 							<h5>SERVICES</h5>
 						</div>
 						<ul class="list">
-							<li><a href="#" title="">Residential Pest Control</a></li>
-							<li><a href="#" title="">Commercial Pest Control</a></li>
-							<li><a href="#" title="">Pest Prevention</a></li>
+                                                    <?php 
+                                                    foreach(getTopServices() as $skey => $sval){
+                                                        $meta_url = $sval['meta_url'];
+                                                        $service_name = $sval['service_name'];
+                                                    ?>
+                                                    
+                                                    <li><a href="<?=base_url('services/').$meta_url?>" title=""> <?php echo strtoupper($service_name)?> </a></li>
+                                                    
+                                                    <?php } ?>
 						</ul>
 					</div>
 				</div>
@@ -109,13 +115,15 @@
 						<div class="footer-title">
 							<h5>COMPANY</h5>
 						</div>
-						<ul class="list">
+<!--						<ul class="list">
 							<li><a href="<?=base_url('about-us')?>" title="">About Us</a></li>
 							<li><a href="" title="">Faq</a></li>
 							<li><a href="#" title="">Support</a></li>
 							<li><a href="<?=base_url('contact-us')?>" title="">Contact</a></li>
-						</ul>
+						</ul>-->
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7009.235428933777!2d77.34457858870094!3d28.551208139053873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scorporate%20office%20near%20Sector-45%2C%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1593857265355!5m2!1sen!2sin" width="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 					</div>
+                                    
 				</div>
 			</div>
 		</div>
