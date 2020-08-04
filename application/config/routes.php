@@ -49,10 +49,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'cloudUpload';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['about-us'] = 'Welcome/about_us/';
-$route['contact-us'] = 'Welcome/contact_us/';
-$route['service'] = 'Welcome/service/';
-//$route['service-part'] = 'Welcome/service_part/';
+//$route['about-us'] = 'Welcome/about_us/';
+//$route['contact-us'] = 'Welcome/contact_us/';
+//$route['service'] = 'Welcome/service/';
+////$route['service-part'] = 'Welcome/service_part/';
