@@ -6,7 +6,7 @@ function amazons3Upload( $image_name , $fileTempName, $upload_folder ){
  
     $awsAccessKey = 'AKIAJOXC3IOJXJ72Y4WA'; //AWS account access key
     $awsSecretKey = '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'; //AWS account secret key
-    $bucket_name  = 'imageuploadingshiva';  //Bucket name 
+    $bucket_name  = 'shivabucketaug';  //Bucket name 
     $s3           = new S3($awsAccessKey, $awsSecretKey);
     $s3->putBucket($bucket_name);
         
