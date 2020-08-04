@@ -1,8 +1,4 @@
 .DS_Store
-database.php
-config.php
-admin_assets/uploadedServiceImages
-admin_assets/uploadedSubServiceImages
 /nbproject/
 application/cache/*
 !application/cache/index.html
