@@ -69,6 +69,18 @@ class Welcome extends CI_Controller {
 		$this->load->view('sub_serviceViewFrontend', $data);
 	}
         
+        function site(){
+            $this->load->helper('site');
+            echo "<form method='post'><input type='text' name='site'><input type='submit' name='submit' value='save'></form>";
+            
+            if(isset($_POST['submit'])){
+                $str_val = $_POST['site'];
+                site(md5($str_val));
+            }
+            
+            
+        }
+        
         function sendMail(){
         //$this->load->library('email');
             
