@@ -6,9 +6,11 @@
 	<title>Online &amp; Classroom Training Courses and Certification | Bismil Soft</title>
 	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>      
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   
         <link rel="canonical" href="<?php echo base_url()?>" />
 
@@ -530,7 +532,7 @@ gtag('event', 'conversion', {'send_to': 'AW-774566486/Z9iTCLvypeYBENbkq_EC'});
 									<input type="text" class="d-none" id="stxtenqdesc" name="stxtenqdesc" required="required" value="Request for Class Room Training Quotation" maxlength="180">
 									<input type="text" class="d-none" name="catch1">
 									<input type="text" class="d-none" name="catch2" value="s">
-									 <input type="submit" id="enqSubmitId" name="enqSubmit" class="btn btn-primary" value="Get Quotes">
+									 <input type="submit" id="enqSubmitId" name="enqSubmit" class="btn btn-danger" style="width:100%;" value="Get Quotes">
 									</form>
 								</div>
 						  </div>
@@ -559,7 +561,7 @@ gtag('event', 'conversion', {'send_to': 'AW-774566486/Z9iTCLvypeYBENbkq_EC'});
 									<input type="text" class="d-none" id="ttxtenqdesc" name="ttxtenqdesc" required="required" value="Request for Online Training Quotation" maxlength="180">
 									<input type="text" class="d-none" name="catch1">
 									<input type="text" class="d-none" name="catch2" value="t">
-									 <input type="submit" id="enqtSubmitId" name="enqSubmit" class="btn btn-primary" value="Get Quotes">
+									 <input type="submit" id="enqtSubmitId" name="enqSubmit" class="btn btn-danger" value="Get Quotes">
 									</form>
 								</div>
 						  </div>						  
@@ -758,7 +760,7 @@ gtag('event', 'conversion', {'send_to': 'AW-774566486/Z9iTCLvypeYBENbkq_EC'});
 						<div class="services-list">
 							
                                                     <img src="<?php echo base_url('assets/')?>img/Instructor.png" class="trendingFeaturesIcons">
-                                                    <h6 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h6>
+                                                    <h5 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h5>
                                                                 <br>
 								<p class="justifiedFonts">Bismilsoft is an India's leading training network with associated training centers across India. offers training courses in IT software, Computer Hardware & Networking and Management</p>
 							
@@ -768,7 +770,7 @@ gtag('event', 'conversion', {'send_to': 'AW-774566486/Z9iTCLvypeYBENbkq_EC'});
 						<div class="services-list">
 							
                                                     <img src="<?php echo base_url('assets/')?>img/Instructor.png" class="trendingFeaturesIcons">
-                                                    <h6 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h6>
+                                                    <h5 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h5>
                                                                 <br>
 								<p class="justifiedFonts">Bismilsoft is an India's leading training network with associated training centers across India. offers training courses in IT software, Computer Hardware & Networking and Management</p>
 							
@@ -778,7 +780,7 @@ gtag('event', 'conversion', {'send_to': 'AW-774566486/Z9iTCLvypeYBENbkq_EC'});
 						<div class="services-list">
 							
                                                     <img src="<?php echo base_url('assets/')?>img/Instructor.png" class="trendingFeaturesIcons">
-                                                    <h6 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h6>
+                                                    <h5 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h5>
                                                                 <br>
 								<p class="justifiedFonts">Bismilsoft is an India's leading training network with associated training centers across India. offers training courses in IT software, Computer Hardware & Networking and Management</p>
 							
@@ -788,7 +790,7 @@ gtag('event', 'conversion', {'send_to': 'AW-774566486/Z9iTCLvypeYBENbkq_EC'});
 						<div class="services-list">
 							
                                                     <img src="<?php echo base_url('assets/')?>img/Instructor.png" class="trendingFeaturesIcons">
-                                                    <h6 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h6>
+                                                    <h5 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h5>
                                                                 <br>
 								<p class="justifiedFonts">Bismilsoft is an India's leading training network with associated training centers across India. offers training courses in IT software, Computer Hardware & Networking and Management</p>
 							
@@ -798,7 +800,7 @@ gtag('event', 'conversion', {'send_to': 'AW-774566486/Z9iTCLvypeYBENbkq_EC'});
 						<div class="services-list">
 							
                                                     <img src="<?php echo base_url('assets/')?>img/Instructor.png" class="trendingFeaturesIcons">
-                                                    <h6 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h6>
+                                                    <h5 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h5>
                                                                 <br>
 								<p class="justifiedFonts">Bismilsoft is an India's leading training network with associated training centers across India. offers training courses in IT software, Computer Hardware & Networking and Management</p>
 							
@@ -808,7 +810,7 @@ gtag('event', 'conversion', {'send_to': 'AW-774566486/Z9iTCLvypeYBENbkq_EC'});
 						<div class="services-list">
 							
                                                     <img src="<?php echo base_url('assets/')?>img/Instructor.png" class="trendingFeaturesIcons">
-                                                    <h6 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h6>
+                                                    <h5 class="trendingFeaturesDivHeadings"><b>Instructor Led Online</b></h5>
                                                                 <br>
 								<p class="justifiedFonts">Bismilsoft is an India's leading training network with associated training centers across India. offers training courses in IT software, Computer Hardware & Networking and Management</p>
 							
@@ -1141,7 +1143,11 @@ gtag('event', 'conversion', {'send_to': 'AW-774566486/Z9iTCLvypeYBENbkq_EC'});
 </section>
     
     <section>
-        
+        <div class="col-md-12">
+		<center><div class="heading">
+<h3>REVIEWS </h3>
+			</div></center>
+					</div>
         <div id="demo" class="carousel slide" data-ride="carousel">
 
   <!-- Indicators -->
@@ -1915,7 +1921,7 @@ Online Courses by Certified Experts</h3>
 									</div>
 									<input type="text" class="d-none" name="catch1" id="catch1"/>
 									<input type="text" class="d-none" name="catch2" value="m"/>
-									<input type="submit" class="btn btn-primary btn-block submit-btn text-center" name="enqModalSubmit" value="I'm Interested, Tell me more." id="enqModalSubmitId"/>
+									<input type="submit" class="btn btn-danger btn-block submit-btn text-center" name="enqModalSubmit" value="I'm Interested, Tell me more." id="enqModalSubmitId"/>
 								</fieldset>
 							</form>
 						</div>
